@@ -138,6 +138,7 @@ public class Conversor extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtTemperaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTemperaturaActionPerformed
@@ -159,7 +160,7 @@ public class Conversor extends javax.swing.JFrame {
         
         double resultado = 0;
         
-        
+        try {
         if(txtTemperatura.getText().equals("")){
             
             String message="ingrese algun numero entero";
@@ -198,7 +199,7 @@ public class Conversor extends javax.swing.JFrame {
             String rad = txtTemperatura.getText();
             JOptionPane.showMessageDialog(
                 this,
-                "a radianes: "+rad+"/180 π rad",
+                "a radianes: " + Integer.parseInt(rad) * 3.14 / 180 + " rad",
                 "MENSAJE",
                 JOptionPane.INFORMATION_MESSAGE
         );
@@ -211,6 +212,15 @@ public class Conversor extends javax.swing.JFrame {
                 this,
                 "a celcius: "+cel +"Cº",
                 "MENSAJE",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+        }
+        } catch (NumberFormatException e) {
+            String message="ingresó un valor no válido";
+            JOptionPane.showMessageDialog(
+                this,
+                message,
+                "ERROR",
                 JOptionPane.INFORMATION_MESSAGE
         );
         }
