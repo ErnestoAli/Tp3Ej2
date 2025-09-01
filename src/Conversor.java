@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -16,6 +19,7 @@ public class Conversor extends javax.swing.JFrame {
      */
     public Conversor() {
         initComponents();
+        
     }
 
     /**
@@ -27,15 +31,15 @@ public class Conversor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnGroupConversor = new javax.swing.ButtonGroup();
+        tipoDeTemperatura = new javax.swing.ButtonGroup();
         title = new javax.swing.JLabel();
         subtitle = new javax.swing.JLabel();
         txtTemperatura = new javax.swing.JTextField();
         btnConvertir = new javax.swing.JButton();
         btnRaFahrenheit = new javax.swing.JRadioButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        btnRaKelvin = new javax.swing.JRadioButton();
+        btnRaRadianes = new javax.swing.JRadioButton();
+        btnRaCelcius = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,8 +55,13 @@ public class Conversor extends javax.swing.JFrame {
         });
 
         btnConvertir.setText("Convertir");
+        btnConvertir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConvertirActionPerformed(evt);
+            }
+        });
 
-        btnGroupConversor.add(btnRaFahrenheit);
+        tipoDeTemperatura.add(btnRaFahrenheit);
         btnRaFahrenheit.setText("A Fahrenheit");
         btnRaFahrenheit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,19 +69,19 @@ public class Conversor extends javax.swing.JFrame {
             }
         });
 
-        btnGroupConversor.add(jRadioButton1);
-        jRadioButton1.setText("A Kelvin");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        tipoDeTemperatura.add(btnRaKelvin);
+        btnRaKelvin.setText("A Kelvin");
+        btnRaKelvin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                btnRaKelvinActionPerformed(evt);
             }
         });
 
-        btnGroupConversor.add(jRadioButton2);
-        jRadioButton2.setText("A Radianes");
+        tipoDeTemperatura.add(btnRaRadianes);
+        btnRaRadianes.setText("A Radianes");
 
-        btnGroupConversor.add(jRadioButton3);
-        jRadioButton3.setText("A Celcius");
+        tipoDeTemperatura.add(btnRaCelcius);
+        btnRaCelcius.setText("A Celcius");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -80,6 +89,15 @@ public class Conversor extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnRaRadianes)
+                            .addComponent(btnRaFahrenheit))
+                        .addGap(95, 95, 95)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnRaKelvin)
+                            .addComponent(btnRaCelcius)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(120, 120, 120)
                         .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -92,19 +110,7 @@ public class Conversor extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(136, 136, 136)
                         .addComponent(btnConvertir, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jRadioButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRadioButton3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnRaFahrenheit)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
-                        .addComponent(jRadioButton1)))
-                .addGap(78, 78, 78))
+                .addGap(78, 109, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,12 +127,12 @@ public class Conversor extends javax.swing.JFrame {
                         .addComponent(btnRaFahrenheit))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton1)))
+                        .addComponent(btnRaKelvin)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                    .addComponent(btnRaRadianes)
+                    .addComponent(btnRaCelcius))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(btnConvertir, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
@@ -136,15 +142,82 @@ public class Conversor extends javax.swing.JFrame {
 
     private void txtTemperaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTemperaturaActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtTemperaturaActionPerformed
 
     private void btnRaFahrenheitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaFahrenheitActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRaFahrenheitActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void btnRaKelvinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaKelvinActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+        
+    }//GEN-LAST:event_btnRaKelvinActionPerformed
+
+    private void btnConvertirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConvertirActionPerformed
+        // TODO add your handling code here:
+        
+        double resultado = 0;
+        
+        
+        if(txtTemperatura.getText().equals("")){
+            
+            String message="ingrese algun numero entero";
+            JOptionPane.showMessageDialog(
+                this,
+                message,
+                "ERROR",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+        }else if(btnRaKelvin.isSelected()==true){
+            
+            
+            
+            resultado = (Integer.parseInt(txtTemperatura.getText()) +273.5);
+            JOptionPane.showMessageDialog(
+                this,
+                "a kelvin: "+resultado+" Kº",
+                "MENSAJE",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+        }else if(btnRaFahrenheit.isSelected()==true){
+            
+            
+            
+            resultado = (Integer.parseInt(txtTemperatura.getText()) *9)/5+32;
+            JOptionPane.showMessageDialog(
+                this,
+                "a faharenheit: "+resultado+" Fº",
+                "MENSAJE",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+        }else if(btnRaRadianes.isSelected()==true){
+            
+            
+            
+            String rad = txtTemperatura.getText();
+            JOptionPane.showMessageDialog(
+                this,
+                "a radianes: "+rad+"/180 π rad",
+                "MENSAJE",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+        }else if(btnRaCelcius.isSelected()==true){
+            
+            
+            
+            String cel =txtTemperatura.getText();
+            JOptionPane.showMessageDialog(
+                this,
+                "a celcius: "+cel +"Cº",
+                "MENSAJE",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+        }
+        
+        
+        
+    }//GEN-LAST:event_btnConvertirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,15 +243,17 @@ public class Conversor extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new Conversor().setVisible(true));
     }
-
+    private void convertir(){
+       
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConvertir;
-    private javax.swing.ButtonGroup btnGroupConversor;
+    private javax.swing.JRadioButton btnRaCelcius;
     private javax.swing.JRadioButton btnRaFahrenheit;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton btnRaKelvin;
+    private javax.swing.JRadioButton btnRaRadianes;
     private javax.swing.JLabel subtitle;
+    private javax.swing.ButtonGroup tipoDeTemperatura;
     private javax.swing.JLabel title;
     private javax.swing.JTextField txtTemperatura;
     // End of variables declaration//GEN-END:variables
