@@ -210,7 +210,7 @@ public class Conversor extends javax.swing.JFrame {
             String cel =txtTemperatura.getText();
             JOptionPane.showMessageDialog(
                 this,
-                "a celcius: "+cel +"Cº",
+                "a celcius: " + Integer.parseInt(cel) + "Cº",
                 "MENSAJE",
                 JOptionPane.INFORMATION_MESSAGE
         );
